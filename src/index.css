@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand+Pre:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
+
+* {
+    @apply font-sans;
+}
 
 @plugin "daisyui" {
     themes: light --default, dark --black;
+}
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    --color-primary: #2C3892;
+    --color-secondary: #FA951E;
 }
