@@ -13,7 +13,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="font-sans bg-base-100 text-base-content shadow-md fixed w-full z-50">
+        <nav className="bg-base-100 text-base-content shadow-md w-full z-50">
             <div className="max-w-7xl mx-auto px-4 md:px-0 flex justify-between items-center">
 
                 <Link to='/'>
@@ -40,7 +40,7 @@ const Navbar = () => {
                 <div className="hidden md:flex gap-4 items-center">
                     <input type="checkbox" value="dark" className="toggle theme-controller" />
                     <Link to="/login">
-                        <button className="btn px-8 bg-primary text-white font-normal">Login</button>
+                        <button className="btn px-8 bg-primary text-white font-normal hover:bg-secondary">Login</button>
                     </Link>
                 </div>
 
