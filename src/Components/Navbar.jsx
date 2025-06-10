@@ -11,20 +11,16 @@ const Navbar = () => {
         { name: "All Packages", to: "/packages" },
         { name: "About Us", to: "/about" },
     ];
-    const mobNavLinks = [
-        { name: "Home", to: "/" },
-        { name: "All Packages", to: "/packages" },
-        { name: "About Us", to: "/about" },
-        { name: "Login", to: "/login" }
-    ];
 
     return (
         <nav className="font-sans bg-base-100 text-base-content shadow-md fixed w-full z-50">
             <div className="max-w-7xl mx-auto px-4 md:px-0 flex justify-between items-center">
 
-                <div className="flex items-center space-x-2">
-                    <img src={websiteLogo} alt="Logo" className="w-24 md:w-36 p-1 md:p-2" />
-                </div>
+                <Link to='/'>
+                    <div className="flex items-center space-x-2 cursor-pointer">
+                        <img src={websiteLogo} alt="Logo" className="w-24 md:w-36 p-1 md:p-2" />
+                    </div>
+                </Link>
 
                 <div className="hidden md:flex items-center space-x-6">
                     {navLinks.map((link) => (
@@ -44,13 +40,13 @@ const Navbar = () => {
                 <div className="hidden md:flex gap-4 items-center">
                     <input type="checkbox" value="dark" className="toggle theme-controller" />
                     <Link to="/login">
-                        <button className="btn-error bg-red-400">Login</button>
+                        <button className="btn px-8 bg-primary text-white font-normal">Login</button>
                     </Link>
                 </div>
 
                 <div className="md:hidden flex gap-3">
                     <button onClick={() => setIsOpen(true)} className="text-base-content focus:outline-none">
-                        <Menu className="w-6 h-6" />
+                        <Menu className="w-7 h-7" />
                     </button>
                 </div>
             </div>
@@ -69,8 +65,9 @@ const Navbar = () => {
                         <input type="checkbox" value="dark" className="toggle theme-controller" />
                     </div>
 
-                    {mobNavLinks.map((link) => (
+                    {navLinks.map((link) => (
                         <NavLink key={link.name} to={link.to} onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-lg hover:text-primary transition"}>{link.name} </NavLink>))}
+                    <Link to={'/login'}>Login</Link>
                 </div>
             </div>
         </nav>
