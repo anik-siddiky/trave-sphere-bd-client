@@ -40,7 +40,7 @@ const Navbar = () => {
                 <div className="hidden md:flex gap-4 items-center">
                     <input type="checkbox" value="dark" className="toggle theme-controller" />
                     <Link to="/login">
-                        <button className="btn px-8 bg-primary text-white font-normal hover:bg-secondary">Login</button>
+                        <button className="btn px-8 bg-primary text-white font-normal hover:bg-secondary border-none shadow-none">Login</button>
                     </Link>
                 </div>
 
