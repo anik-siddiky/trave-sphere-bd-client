@@ -13,6 +13,7 @@
     "@lottiefiles/dotlottie-react": "^0.14.0",
     "@lottiefiles/dotlottie-web": "^0.46.0",
     "@tailwindcss/vite": "^4.1.8",
+    "firebase": "^11.9.1",
     "lottie-react": "^2.4.1",
     "lucide": "^0.513.0",
     "lucide-react": "^0.513.0",
