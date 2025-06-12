@@ -21,8 +21,9 @@ const Navbar = () => {
     const navLinks = [
         { name: "Home", to: "/" },
         { name: "All Packages", to: "/packages" },
+        user && { name: "My Bookings", to: "/mybookings" },
         { name: "About Us", to: "/about" },
-    ];
+    ].filter(Boolean);;
 
     return (
         <nav className="bg-base-100 text-base-content shadow-md w-full z-50">
@@ -88,7 +89,16 @@ const Navbar = () => {
 
                     {navLinks.map((link) => (
                         <NavLink key={link.name} to={link.to} onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-lg hover:text-primary transition"}>{link.name} </NavLink>))}
-                    <Link to={'/login'}>Login</Link>
+                    {
+                        user ?
+                            <>
+                                <button onClick={handleLogOut}>Log Out</button>
+                            </>
+                            :
+                            <>
+                                <Link to={'/login'}>Login</Link>
+                            </>
+                    }
                 </div>
             </div>
         </nav>

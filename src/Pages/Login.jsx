@@ -1,21 +1,28 @@
 import React, { useContext, useState } from 'react';
 import loginAnimation from '../assets/animations/loginAnimation.json'
 import Lottie from 'lottie-react';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { AuthContext } from '../Contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signInUser, googleSignin } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state || '/';
 
     const handleGoogleSingIn = () => {
         googleSignin()
             .then(result => {
                 console.log(result.user)
+                navigate(from);
+                toast.success("Google Sign-In Successful!");
             })
             .catch(error => {
                 console.log(error.message)
+                toast.error("Google Sign-In Failed: " + error.message);
             })
     }
 
@@ -28,9 +35,12 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 console.log(result.user)
+                navigate(from);
+                toast.success("Login Successful!");
             })
             .catch(error => {
                 console.log(error)
+                toast.error("Incorrect Email or Password.");
             })
     }
 

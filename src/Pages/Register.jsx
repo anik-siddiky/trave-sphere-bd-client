@@ -1,22 +1,27 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import registerAnimation from '../assets/animations/registerAnimation.json';
 import Lottie from 'lottie-react';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 import { AuthContext } from '../Contexts/AuthContext';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
     const { createUser, googleSignin } = useContext(AuthContext)
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const handleGoogleSingUp = () => {
         googleSignin()
             .then(result => {
                 console.log(result.user)
+                navigate('/')
+                toast.success("Registration successful!");
             })
             .catch(error => {
                 console.log(error.message)
+                toast.error("Google sign-up failed: " + error.message);
             })
     }
 
@@ -54,9 +59,12 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                navigate('/')
+                toast.success("Registration successful!");
             })
             .catch(error => {
                 console.log(error)
+                toast.error("Google sign-up failed: " + error.message);
             })
     };
 
