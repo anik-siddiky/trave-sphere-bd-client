@@ -4,6 +4,7 @@ import Home from "../Components/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import About from "../Pages/About";
+import AllPackages from "../Pages/AllPackages";
 
 const Router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const Router = createBrowserRouter([
             {
                 path: 'about',
                 element: <About></About>
+            },
+            {
+                path: 'packages',
+                element: <AllPackages></AllPackages>
             }
         ]
     }

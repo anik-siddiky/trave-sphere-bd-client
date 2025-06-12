@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { Typewriter } from "react-simple-typewriter";
+import { motion } from 'framer-motion';
 
 import bgImage1 from "../assets/bgImages/bg-image-1.jpg";
 import bgImage2 from "../assets/bgImages/bg-image-2.jpg";
@@ -40,7 +41,11 @@ const HeroSection = () => {
             </div>
 
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center z-20 text-white text-center px-4">
-                <div>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.5, ease: 'easeOut' }}
+                >
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
                         Explore Bangladesh <br />
                         <span className="text-2xl md:text-4xl">
@@ -74,7 +79,7 @@ const HeroSection = () => {
                             View Packages
                         </button>
                     </Link>
-                </div>
+                </motion.div>
             </div>
 
         </div>

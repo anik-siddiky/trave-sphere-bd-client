@@ -2,6 +2,7 @@ import React from 'react';
 import aboutImage1 from '../assets/aboutImages/aboutImage1.jpg';
 import aboutImage2 from '../assets/aboutImages/aboutImage2.jpg';
 import aboutImage3 from '../assets/aboutImages/aboutImage3.jpg';
+import { Link } from 'react-router';
 
 const About = () => {
     return (
@@ -20,9 +21,11 @@ const About = () => {
                             <p className='text-white text-sm md:text-base'>
                                 Immerse yourself in breathtaking landscapes where mountains meet the sky and forests whisper ancient secrets. Our nature experiences go beyond typical tours - we'll guide you to hidden waterfalls, teach you to read animal tracks, and help you witness sunrise from vantage points few travelers ever see. Reconnect with the earth in ways that will transform how you see the world forever.
                             </p>
-                            <button className="btn px-6 md:px-8 bg-secondary text-white font-normal shadow-none border-none text-sm md:text-base">
-                                All Packages
-                            </button>
+                            <Link to="/packages">
+                                <button className="btn px-6 md:px-8 bg-secondary text-white font-normal shadow-none border-none text-sm md:text-base">
+                                    All Packages
+                                </button>
+                            </Link>
                         </div>
                     </div>
 
@@ -52,9 +55,11 @@ const About = () => {
                             <p className='text-sm md:text-base'>
                                 Break free from rigid itineraries and scripted tours. With Travel Sphere, you craft the journey of your dreams. Whether that means summiting remote peaks at dawn, stumbling upon hidden local cafes, or spending an extra day wherever your heart leads. Mix adrenaline-packed activities with leisurely exploration, all on your schedule.
                             </p>
-                            <button className="btn px-6 md:px-8 bg-secondary text-white font-normal shadow-none border-none text-sm md:text-base">
-                                All Packages
-                            </button>
+                            <Link to="/packages">
+                                <button className="btn px-6 md:px-8 bg-secondary text-white font-normal shadow-none border-none text-sm md:text-base">
+                                    All Packages
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -66,9 +71,11 @@ const About = () => {
                             <p className='text-white text-sm md:text-base'>
                                 Swap screen time for waterfall climbs and campfire stories. Our guides specialize in keeping kids energized (and parents relaxed) with scavenger hikes, paddleboarding lessons, and cozy cabins with s’more kits. Even picky eaters cheer for our picnic lunches!
                             </p>
-                            <button className="btn px-6 md:px-8 bg-secondary text-white font-normal shadow-none border-none text-sm md:text-base">
-                                All Packages
-                            </button>
+                            <Link to="/packages">
+                                <button className="btn px-6 md:px-8 bg-secondary text-white font-normal shadow-none border-none text-sm md:text-base">
+                                    All Packages
+                                </button>
+                            </Link>
                         </div>
                     </div>
 

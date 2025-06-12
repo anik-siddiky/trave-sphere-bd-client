@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
 import websiteLogo from '../assets/website-logo.png';
+import { AuthContext } from "../Contexts/AuthContext";
 
 const Navbar = () => {
+    const { user, logOutUser } = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false);
+
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => {
+                console.log("Signed out successfully")
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
 
     const navLinks = [
         { name: "Home", to: "/" },
@@ -39,9 +51,18 @@ const Navbar = () => {
 
                 <div className="hidden md:flex gap-4 items-center">
                     <input type="checkbox" value="dark" className="toggle theme-controller" />
-                    <Link to="/login">
-                        <button className="btn px-8 bg-primary text-white font-normal hover:bg-secondary border-none shadow-none">Login</button>
-                    </Link>
+                    {
+                        user ?
+                            <>
+                                <button onClick={handleLogOut} className="btn px-8 bg-primary text-white font-normal hover:bg-secondary border-none shadow-none">Log Out</button>
+                            </>
+                            :
+                            <>
+                                <Link to="/login">
+                                    <button className="btn px-8 bg-primary text-white font-normal hover:bg-secondary border-none shadow-none">Login</button>
+                                </Link>
+                            </>
+                    }
                 </div>
 
                 <div className="md:hidden flex gap-3">
