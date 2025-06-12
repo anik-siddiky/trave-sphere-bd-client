@@ -7,6 +7,8 @@ import About from "../Pages/About";
 import AllPackages from "../Pages/AllPackages";
 import MyBookings from "../Pages/MyBookings";
 import PrivateRoutes from "../Contexts/PrivateRoutes";
+import AddPackages from "../Pages/AddPackages";
+import ManageMyPackages from "../Pages/ManageMyPackages";
 
 const Router = createBrowserRouter([
     {
@@ -31,7 +33,7 @@ const Router = createBrowserRouter([
                 element: <About></About>
             },
             {
-                path: 'packages',
+                path: 'all-packages',
                 element: <AllPackages></AllPackages>
             },
             {
@@ -39,6 +41,20 @@ const Router = createBrowserRouter([
                 element:
                     <PrivateRoutes>
                         <MyBookings></MyBookings>
+                    </PrivateRoutes>
+            },
+            {
+                path: 'add-packages',
+                element:
+                    <PrivateRoutes>
+                        <AddPackages></AddPackages>
+                    </PrivateRoutes>
+            },
+            {
+                path: 'manage-my-packages',
+                element:
+                    <PrivateRoutes>
+                        <ManageMyPackages></ManageMyPackages>
                     </PrivateRoutes>
             }
         ]

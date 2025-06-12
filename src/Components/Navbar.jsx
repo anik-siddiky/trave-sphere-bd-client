@@ -7,6 +7,7 @@ import { AuthContext } from "../Contexts/AuthContext";
 const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false);
+    const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
     const handleLogOut = () => {
         logOutUser()
@@ -20,7 +21,7 @@ const Navbar = () => {
 
     const navLinks = [
         { name: "Home", to: "/" },
-        { name: "All Packages", to: "/packages" },
+        { name: "All Packages", to: "/all-packages" },
         user && { name: "My Bookings", to: "/mybookings" },
         { name: "About Us", to: "/about" },
     ].filter(Boolean);;
@@ -54,13 +55,44 @@ const Navbar = () => {
                     <input type="checkbox" value="dark" className="toggle theme-controller" />
                     {
                         user ?
-                            <>
-                                <button onClick={handleLogOut} className="btn px-8 bg-primary text-white font-normal hover:bg-secondary border-none shadow-none">Log Out</button>
-                            </>
+                            <div className="relative">
+                                <div tabIndex={0} role="button" className="avatar cursor-pointer" onClick={() => setIsDropDownOpen(prev => !prev)}>
+                                    <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                        {user?.photoURL ?
+                                            <img src={user.photoURL} alt="User Avatar" referrerPolicy="no-referrer" />
+                                            : <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="Default Avatar" />
+                                        }
+                                    </div>
+                                </div>
+                                {isDropDownOpen && (
+                                    <ul className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 bg-base-100 shadow-lg rounded-lg w-60 p-4 space-y-2">
+                                        <li className="py-2 flex items-center justify-center">
+                                            <NavLink onClick={() => setIsDropDownOpen(false)} className={({ isActive }) =>
+                                                isActive ? "text-primary font-semibold" : "hover:text-primary transition"
+                                            } to='add-packages'>Add Packages</NavLink>
+                                        </li>
+                                        <li className="py-2 flex items-center justify-center">
+                                            <NavLink onClick={() => setIsDropDownOpen(false)} className={({ isActive }) =>
+                                                isActive ? "text-primary font-semibold" : "hover:text-primary transition "
+                                            } to='manage-my-packages'>Manage My Packages</NavLink>
+                                        </li>
+                                        <li className="py-2">
+                                            <button onClick={() => {
+                                                handleLogOut();
+                                                setIsDropDownOpen(false);
+                                            }} className="btn bg-primary text-white hover:bg-secondary border-none w-full">
+                                                Log Out
+                                            </button>
+                                        </li>
+                                    </ul>
+                                )}
+                            </div>
+
+
                             :
                             <>
                                 <Link to="/login">
-                                    <button className="btn px-8 bg-primary text-white font-normal hover:bg-secondary border-none shadow-none">Login</button>
+                                    <button className="btn px-8 bg-primary text-white font-normal rounded-none hover:bg-secondary border-none shadow-none">Login</button>
                                 </Link>
                             </>
                     }
@@ -89,14 +121,27 @@ const Navbar = () => {
 
                     {navLinks.map((link) => (
                         <NavLink key={link.name} to={link.to} onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-lg hover:text-primary transition"}>{link.name} </NavLink>))}
+
+                    {
+                        user &&
+                        <li className="flex items-center">
+                            <NavLink onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-lg hover:text-primary transition"} to='add-packages'>Add Packages</NavLink>
+                        </li>
+                    }
+                    {
+                        user &&
+                        <li className="flex items-center">
+                            <NavLink onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-lg hover:text-primary transition"} to='manage-my-packages'>Manage My Packages</NavLink>
+                        </li>
+                    }
                     {
                         user ?
                             <>
-                                <button onClick={handleLogOut}>Log Out</button>
+                                <button onClick={() => { setIsOpen(false); handleLogOut(); }} >Log Out</button>
                             </>
                             :
                             <>
-                                <Link to={'/login'}>Login</Link>
+                                <Link onClick={() => setIsOpen(false)} to={'/login'}>Login</Link>
                             </>
                     }
                 </div>

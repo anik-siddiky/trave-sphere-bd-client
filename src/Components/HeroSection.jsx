@@ -52,10 +52,10 @@ const HeroSection = () => {
                             <span className="text-secondary">
                                 <Typewriter
                                     words={[
-                                        "The Endless Beaches of Cox’s Bazar",
-                                        "The Beauty of the Sundarbans",
+                                        "The Beaches of Cox’s Bazar",
+                                        "The Beauty of Sundarbans",
                                         "The Serenity of Sylhet",
-                                        "The Tranquility of Saint Martin's Island",
+                                        "The Saint Martin's Island",
                                         "The Heritage of Paharpur",
                                         "The Hills of Bandarban",
                                     ]}
