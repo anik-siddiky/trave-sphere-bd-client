@@ -22,7 +22,7 @@ const Navbar = () => {
     const navLinks = [
         { name: "Home", to: "/" },
         { name: "All Packages", to: "/all-packages" },
-        user && { name: "My Bookings", to: "/mybookings" },
+        user && { name: "My Bookings", to: "/my-bookings" },
         { name: "About Us", to: "/about" },
     ].filter(Boolean);;
 

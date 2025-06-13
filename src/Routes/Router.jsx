@@ -9,6 +9,8 @@ import MyBookings from "../Pages/MyBookings";
 import PrivateRoutes from "../Contexts/PrivateRoutes";
 import AddPackages from "../Pages/AddPackages";
 import ManageMyPackages from "../Pages/ManageMyPackages";
+import ErrorLayout from "../Layouts/ErrorLayout";
+import ErrorPage from "../Pages/ErrorPage";
 
 const Router = createBrowserRouter([
     {
@@ -37,7 +39,7 @@ const Router = createBrowserRouter([
                 element: <AllPackages></AllPackages>
             },
             {
-                path: 'mybookings',
+                path: 'my-bookings',
                 element:
                     <PrivateRoutes>
                         <MyBookings></MyBookings>
@@ -56,6 +58,19 @@ const Router = createBrowserRouter([
                     <PrivateRoutes>
                         <ManageMyPackages></ManageMyPackages>
                     </PrivateRoutes>
+            },
+            {
+                
+            }
+        ]
+    },
+    {
+        path: "*",
+        element: <ErrorLayout></ErrorLayout>,
+        children: [
+            {
+                path: "*",
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

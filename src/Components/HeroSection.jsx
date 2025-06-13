@@ -74,7 +74,7 @@ const HeroSection = () => {
                         Let Travel Sphere take you to breathtaking destinations. <br />
                         Discover curated experiences and unforgettable memories.
                     </p>
-                    <Link to="/packages">
+                    <Link to="/all-packages">
                         <button className="bg-primary text-white px-6 py-3 md:px-10 md:py-4 btn border-none rounded-none md:text-lg font-medium shadow-md hover:bg-secondary hover:scale-105 transition duration-300 ease-in-out">
                             View Packages
                         </button>

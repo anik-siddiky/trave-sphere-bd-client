@@ -1,0 +1,29 @@
+import React from 'react';
+import { Link } from 'react-router';
+import Lottie from 'lottie-react';
+import errorAnimation from '../assets/animations/error404.json';
+
+const ErrorPage = () => {
+    return (
+        <div className="min-h-[calc(100vh-150px)] flex flex-col items-center justify-center bg-base-100 text-center px-4">
+            <div className="max-w-md w-full">
+                <Lottie
+                    animationData={errorAnimation}
+                    loop
+                    className="w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto"
+                />
+                <h1 className="text-4xl sm:text-5xl font-bold text-primary mb-4">Page Not Found</h1>
+                <p className="text-base-content mb-6">
+                    The page you're looking for doesn't exist or has been moved.
+                </p>
+                <Link to="/">
+                    <button className="btn bg-primary text-white hover:bg-secondary rounded-none border-none px-6">
+                        Go to Homepage
+                    </button>
+                </Link>
+            </div>
+        </div>
+    );
+};
+
+export default ErrorPage;
