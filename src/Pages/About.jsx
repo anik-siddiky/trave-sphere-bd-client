@@ -3,6 +3,7 @@ import aboutImage1 from '../assets/aboutImages/aboutImage1.jpg';
 import aboutImage2 from '../assets/aboutImages/aboutImage2.jpg';
 import aboutImage3 from '../assets/aboutImages/aboutImage3.jpg';
 import { Link } from 'react-router';
+import Loading from '../Components/Loading';
 
 const About = () => {
     return (
