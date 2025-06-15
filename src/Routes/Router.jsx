@@ -12,6 +12,7 @@ import ManageMyPackages from "../Pages/ManageMyPackages";
 import ErrorLayout from "../Layouts/ErrorLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import PackageDetails from "../Pages/PackageDetails";
+import UpdatePackage from "../Pages/UpdatePackage";
 
 const Router = createBrowserRouter([
     {
@@ -65,6 +66,13 @@ const Router = createBrowserRouter([
                 element:
                     <PrivateRoutes>
                         <PackageDetails></PackageDetails>
+                    </PrivateRoutes>
+            },
+            {
+                path: 'update-package/:id',
+                element:
+                    <PrivateRoutes>
+                        <UpdatePackage></UpdatePackage>
                     </PrivateRoutes>
             }
         ]

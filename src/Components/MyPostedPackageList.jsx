@@ -1,5 +1,6 @@
 import React, { use } from "react";
 import { Pencil, Trash2 } from "lucide-react";
+import { Link } from "react-router";
 
 const MyPostedPackageList = ({ packageAddedByPromise }) => {
     const packages = use(packageAddedByPromise);
@@ -39,9 +40,11 @@ const MyPostedPackageList = ({ packageAddedByPromise }) => {
                             <td>৳{pkg.price}</td>
                             <td>
                                 <div className="flex gap-2">
-                                    <button className="btn btn-sm btn-ghost text-blue-600 hover:text-blue-800">
-                                        <Pencil size={18} />
-                                    </button>
+                                    <Link to={`/update-package/${pkg._id}`}>
+                                        <button className="btn btn-sm btn-ghost text-blue-600 hover:text-blue-800">
+                                            <Pencil size={18} />
+                                        </button>
+                                    </Link>
                                     <button className="btn btn-sm btn-ghost text-red-600 hover:text-red-800">
                                         <Trash2 size={18} />
                                     </button>
