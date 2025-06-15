@@ -1,16 +1,16 @@
 import { Suspense, useContext } from 'react';
 import Loading from '../Components/Loading'
 import MyPostedPackageList from '../Components/MyPostedPackageList';
-import { packageAddedByPromise } from '../API/PackageAPI';
 import { AuthContext } from '../Contexts/AuthContext';
 
 const ManageMyPackages = () => {
     const { user } = useContext(AuthContext)
+    if (!user.email) {
+        return <Loading></Loading>
+    }
     return (
         <div>
-            <Suspense fallback={<Loading></Loading>}>
-                <MyPostedPackageList packageAddedByPromise={packageAddedByPromise(user.email  )}></MyPostedPackageList>
-            </Suspense>
+            <MyPostedPackageList userEmail={user?.email}></MyPostedPackageList>
         </div>
     );
 };

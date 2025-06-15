@@ -2,9 +2,11 @@ import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router';
 
 const AddPackages = () => {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleAddPackage = (e) => {
         e.preventDefault();
@@ -25,6 +27,7 @@ const AddPackages = () => {
                 console.log(res.data)
                 toast.success("Your package was added successfully");
                 form.reset();
+                navigate('/manage-my-packages');
             })
             .catch(error => {
                 console.log(error)
