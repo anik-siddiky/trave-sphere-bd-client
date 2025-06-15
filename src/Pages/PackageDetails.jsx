@@ -46,7 +46,7 @@ const PackageDetails = () => {
                     className="w-full h-96 object-cover"
                 />
                 <div className="absolute bottom-0 left-0 z-20 p-8 text-white">
-                    <h1 className="text-4xl md:text-5xl font-bold mb-2">{tourName}</h1>
+                    <h1 className="text-4xl md:text-4xl font-bold mb-2">{tourName}</h1>
                     <div className="flex items-center space-x-4">
                         <span className="flex items-center">
                             <FaMapMarkerAlt className="mr-2 text-amber-400" />

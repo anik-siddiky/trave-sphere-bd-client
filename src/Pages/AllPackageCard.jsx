@@ -31,7 +31,7 @@ const AllPackageCard = ({ singlePackage }) => {
                     <i className="far fa-calendar-alt mr-1"></i> Departs: {departureDate}
                 </div>
                 
-                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg mb-4 transition-all duration-300 group-hover:bg-blue-50">
+                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg mb-4 transition-all duration-300 group-hover:bg-amber-100">
                     <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
                         <img 
                             src={guidePhoto} 
