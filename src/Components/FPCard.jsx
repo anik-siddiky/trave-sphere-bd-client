@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const AllPackageCard = ({ singlePackage }) => {
-    const { image, tourName, duration, price, departureDate, guideName, guidePhoto, _id } = singlePackage;
+const FPCard = ({ fPackage }) => {
+
+    const { image, tourName, duration, price, departureDate, guideName, guidePhoto, _id } = fPackage;
 
     return (
         <div className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
@@ -46,7 +47,7 @@ const AllPackageCard = ({ singlePackage }) => {
                 </div>
 
                 <Link
-                    to={`/package-details/${singlePackage._id}`}
+                    to={`/package-details/${fPackage._id}`}
                     className="block w-full py-2 text-center bg-primary text-white font-medium rounded-none transition-all duration-300 hover:shadow-lg hover:from-amber-500 hover:to-amber-700"
                 >
                     View Details
@@ -56,4 +57,4 @@ const AllPackageCard = ({ singlePackage }) => {
     );
 };
 
-export default AllPackageCard;
+export default FPCard;
