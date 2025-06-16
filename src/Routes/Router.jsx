@@ -13,6 +13,7 @@ import ErrorLayout from "../Layouts/ErrorLayout";
 import ErrorPage from "../Pages/ErrorPage";
 import PackageDetails from "../Pages/PackageDetails";
 import UpdatePackage from "../Pages/UpdatePackage";
+import BookNow from "../Pages/BookNow";
 
 const Router = createBrowserRouter([
     {
@@ -73,6 +74,13 @@ const Router = createBrowserRouter([
                 element:
                     <PrivateRoutes>
                         <UpdatePackage></UpdatePackage>
+                    </PrivateRoutes>
+            },
+            {
+                path: 'book/:id',
+                element:
+                    <PrivateRoutes>
+                        <BookNow></BookNow>
                     </PrivateRoutes>
             }
         ]

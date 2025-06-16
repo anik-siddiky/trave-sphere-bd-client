@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import Loading from '../Components/Loading';
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock, FaPhoneAlt, FaEnvelope, FaMoneyBillWave, FaStar } from 'react-icons/fa';
 
@@ -8,6 +8,7 @@ const PackageDetails = () => {
     const { id } = useParams();
     const [packageData, setPackageData] = useState();
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -130,7 +131,7 @@ const PackageDetails = () => {
                                 </div>
                             </div>
 
-                            <button className="w-full bg-primary text-white py-3 rounded-none font-bold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                            <button onClick={() => navigate(`/book/${id}`)} className="w-full bg-primary text-white py-3 rounded-none font-bold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                                 Book Now
                             </button>
                         </div>
