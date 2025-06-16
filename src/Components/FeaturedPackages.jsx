@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import FPCard from './FPCard';
+import { Link } from 'react-router';
 
 const FeaturedPackages = () => {
     const [featuredPackages, setFeaturedPackages] = useState([]);
@@ -23,6 +24,11 @@ const FeaturedPackages = () => {
                     featuredPackages.map(fPackage => <FPCard key={fPackage._id} fPackage={fPackage}></FPCard>)
                 }
             </div>
+            <Link to="/all-packages" className='flex justify-center items-center my-10'>
+                <button className="bg-primary text-white px-6 py-3 md:px-16 md:py-6 btn border-none rounded-none md:text-lg font-medium shadow-md hover:bg-secondary hover:scale-105 transition duration-300 ease-in-out">
+                    View All Packages
+                </button>
+            </Link>
         </div>
     );
 };
