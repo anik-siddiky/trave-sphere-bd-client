@@ -2,8 +2,8 @@ const LocationSection = () => {
     return (
         <section className="py-16">
             <div className="max-w-6xl mx-auto px-4 text-center">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Office Location</h2>
-                <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Our Office Location</h2>
+                <p className="text-gray-600 dark:text-gray-100 mb-8 max-w-2xl mx-auto">
                     Visit us at our office or find us on Google Maps. We’re always happy to meet you!
                 </p>
                 <div className="w-full h-[400px] rounded-xl overflow-hidden shadow-lg">

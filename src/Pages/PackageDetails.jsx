@@ -58,26 +58,25 @@ const PackageDetails = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div className="lg:col-span-7">
-                    <div className="bg-white rounded-xl shadow-lg p-6">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-4">Tour Highlights</h2>
+                <div className="lg:col-span-7 ">
+                    <div className="rounded-xl shadow-lg p-6 bg-white dark:bg-gray-900">
+                        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">Tour Highlights</h2>
                         <div className="grid grid-cols-1 gap-4">
                             {packageDetails.split('.').filter(point => point.trim() !== '').map((point, index) => (
                                 <div key={index} className="flex items-start">
                                     <div className="bg-blue-100 p-2 rounded-full mr-3 mt-1">
-                                        <FaStar className="text-primary text-sm" />
+                                        <FaStar className="text-[#2C3892] text-sm" />
                                     </div>
-                                    <p className="text-gray-700">{point.trim()}.</p>
+                                    <p className="text-gray-700 dark:text-white">{point.trim()}.</p>
                                 </div>
                             ))}
                         </div>
                     </div>
-
                 </div>
 
                 <div className="lg:col-span-5">
-                    <div className="sticky top-8 bg-white rounded-xl shadow-lg overflow-hidden">
-                        <div className="bg-primary p-6 text-white text-center">
+                    <div className="sticky top-8 bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
+                        <div className="bg-[#2C3892] p-6 text-white text-center">
                             <p className="text-2xl font-bold">{price} Taka</p>
                             <p className="text-sm">per person</p>
                         </div>
@@ -87,28 +86,28 @@ const PackageDetails = () => {
                                 <div className="flex items-center">
                                     <FaCalendarAlt className="text-primary mr-3" />
                                     <div>
-                                        <p className="text-sm text-gray-500">Departure Date</p>
-                                        <p className="font-medium">{departureDate}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-300">Departure Date</p>
+                                        <p className="font-medium text-black dark:text-white">{departureDate}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center">
                                     <FaClock className="text-primary mr-3" />
                                     <div>
-                                        <p className="text-sm text-gray-500">Duration</p>
-                                        <p className="font-medium">{duration}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-300">Duration</p>
+                                        <p className="font-medium text-black dark:text-white">{duration}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center">
                                     <FaMapMarkerAlt className="text-primary mr-3" />
                                     <div>
-                                        <p className="text-sm text-gray-500">Departure From</p>
-                                        <p className="font-medium">{departureLocation}</p>
+                                        <p className="text-sm text-gray-500 dark:text-gray-300">Departure From</p>
+                                        <p className="font-medium text-black dark:text-white">{departureLocation}</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                                <h3 className="font-semibold text-gray-800 mb-3">Your Guide</h3>
+                            <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 mb-6">
+                                <h3 className="font-semibold text-gray-800 dark:text-white mb-3">Your Guide</h3>
                                 <div className="flex items-center">
                                     <img
                                         src={guidePhoto}
@@ -116,8 +115,8 @@ const PackageDetails = () => {
                                         className="w-12 h-12 rounded-full object-cover border-2 border-primary mr-3"
                                     />
                                     <div>
-                                        <p className="font-medium text-gray-800">{guideName}</p>
-                                        <div className="flex items-center text-sm text-gray-500 mt-1">
+                                        <p className="font-medium text-gray-800 dark:text-white">{guideName}</p>
+                                        <div className="flex items-center text-sm text-gray-500 dark:text-gray-300 mt-1">
                                             <FaPhoneAlt className="mr-1" />
                                             <span className="mr-3">{contactNo}</span>
                                             <FaEnvelope className="mr-1" />
@@ -127,7 +126,7 @@ const PackageDetails = () => {
                                 </div>
                             </div>
 
-                            <button onClick={() => navigate(`/book/${id}`)} className="w-full bg-primary text-white py-3 rounded-none font-bold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                            <button onClick={() => navigate(`/book/${id}`)} className="w-full bg-[#2C3892] text-white py-3 rounded-none font-bold hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
                                 Book Now
                             </button>
                         </div>
@@ -136,7 +135,7 @@ const PackageDetails = () => {
             </div>
 
             <div className="mt-16">
-                <h2 className="text-3xl font-bold text-gray-800 mb-6">Traveler Reviews</h2>
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">Traveler Reviews</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {[
                         {
@@ -156,7 +155,7 @@ const PackageDetails = () => {
                             review: "Well-curated tour with a perfect balance of adventure and relaxation. The waterfall trek was a highlight for me. Great value for money!",
                         },
                     ].map((reviewData, index) => (
-                        <div key={index} className="bg-white rounded-xl shadow-lg p-6">
+                        <div key={index} className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-6">
                             <div className="flex items-center mb-4">
                                 <img
                                     src="https://img.icons8.com/?size=512w&id=7819&format=png"
@@ -164,7 +163,7 @@ const PackageDetails = () => {
                                     className="w-12 h-12 rounded-full object-cover mr-4"
                                 />
                                 <div>
-                                    <p className="font-semibold">{reviewData.name}</p>
+                                    <p className="font-semibold text-black dark:text-white">{reviewData.name}</p>
                                     <div className="flex text-amber-400">
                                         {[...Array(5)].map((_, i) => (
                                             <FaStar key={i} />
@@ -172,7 +171,7 @@ const PackageDetails = () => {
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-gray-600">
+                            <p className="text-gray-600 dark:text-gray-200">
                                 "{reviewData.review}"
                             </p>
                         </div>

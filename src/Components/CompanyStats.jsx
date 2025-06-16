@@ -35,7 +35,7 @@ const CompanyStats = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="text-3xl md:text-4xl font-bold text-gray-800 mb-12"
+                    className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-12"
                 >
                     Our Achievements in Numbers
                 </motion.h2>
@@ -48,13 +48,13 @@ const CompanyStats = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             viewport={{ once: true }}
-                            className="bg-white shadow-md rounded-xl p-6 hover:shadow-xl transition duration-300"
+                            className="bg-white dark:bg-gray-900 shadow-md rounded-xl p-6 hover:shadow-xl transition duration-300"
                         >
                             <div className="flex justify-center mb-4">{item.icon}</div>
-                            <h3 className="text-4xl font-bold text-primary">
+                            <h3 className="text-4xl font-bold text-black dark:text-white">
                                 <CountUp end={item.end} duration={2.5} separator="," />
                             </h3>
-                            <p className="mt-2 text-gray-600 font-medium">{item.label}</p>
+                            <p className="mt-2 text-gray-600 dark:text-gray-100 font-medium">{item.label}</p>
                         </motion.div>
                     ))}
                 </div>

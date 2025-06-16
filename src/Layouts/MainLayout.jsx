@@ -7,7 +7,9 @@ const MainLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className='bg-white dark:bg-black'>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );

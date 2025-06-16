@@ -45,9 +45,9 @@ const AllPackages = () => {
     }
 
     return (
-        <div className="my-12 px-4 md:px-0 lg:max-w-7xl mx-auto min-h-screen">
+        <div className="px-4 md:px-0 lg:max-w-7xl mx-auto min-h-screen py-12">
             <div>
-                <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 relative after:content-[''] after:block after:w-20 after:h-1 after:bg-primary after:mx-auto after:mt-4">
+                <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
                     All Packages
                 </h1>
                 <div className='flex justify-end mb-5'>
@@ -56,9 +56,13 @@ const AllPackages = () => {
                         onChange={(e) => setSearchTerm(e.target.value)}
                         type="text"
                         placeholder="Search by tour or destination"
-                        className="input input-bordered w-full max-w-xs"
+                        className="input input-bordered w-full max-w-xs 
+               bg-white text-black 
+               dark:bg-gray-800 dark:text-white 
+               placeholder-gray-500 dark:placeholder-gray-400 
+               border-gray-300 dark:border-gray-600"
                     />
-                    <button onClick={handleSearch} className='btn bg-primary rounded-none shadow-none text-white'>Search</button>
+                    <button onClick={handleSearch} className='btn bg-[#2C3892] rounded-none shadow-none text-white'>Search</button>
                 </div>
             </div>
 

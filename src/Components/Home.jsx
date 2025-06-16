@@ -7,7 +7,7 @@ import LocationSection from './LocationSection';
 
 const Home = () => {
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen bg-white dark:bg-black'>
             <section>
                 <HeroSection></HeroSection>
             </section>

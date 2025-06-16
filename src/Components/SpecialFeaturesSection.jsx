@@ -73,10 +73,10 @@ const SpecialFeaturesSection = () => {
     return (
         <div className="container mx-auto px-4 md:px-0 py-16 md:max-w-7xl">
             <div className="text-center mb-16">
-                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">
                     Why Choose Us
                 </h1>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                <p className="text-lg text-gray-600 dark:text-gray-100 max-w-2xl mx-auto">
                     We go beyond ordinary travel experiences to offer safety, comfort,
                     and unforgettable memories.
                 </p>
@@ -91,13 +91,13 @@ const SpecialFeaturesSection = () => {
                         whileInView="visible"
                         viewport={{ once: true }}
                         custom={i}
-                        className="bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+                        className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                     >
                         <div className="flex items-start gap-4">
                             <div className={`${feature.bg} p-3 rounded-full`}>{feature.icon}</div>
                             <div>
-                                <h3 className="text-xl font-semibold text-gray-800 mb-1">{feature.title}</h3>
-                                <p className="text-gray-600 text-sm">{feature.desc}</p>
+                                <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">{feature.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-100 text-sm">{feature.desc}</p>
                             </div>
                         </div>
                     </motion.div>
@@ -112,7 +112,7 @@ const SpecialFeaturesSection = () => {
                 className="text-center mt-16"
             >
                 <Link to='/all-packages'>
-                    <button className="bg-primary text-white px-6 py-3 md:px-10 md:py-4 btn border-none rounded-none md:text-lg font-medium shadow-md hover:bg-secondary hover:scale-105 transition duration-300 ease-in-out">
+                    <button className="bg-[#2C3892] text-white px-6 py-3 md:px-10 md:py-4 btn border-none rounded-none md:text-lg font-medium shadow-md hover:bg-[#FA951E] hover:scale-105 transition duration-300 ease-in-out">
                         View Packages
                     </button>
                 </Link>

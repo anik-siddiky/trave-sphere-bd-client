@@ -49,7 +49,7 @@ const HeroSection = () => {
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
                         Explore Bangladesh <br />
                         <span className="text-2xl md:text-4xl">
-                            <span className="text-secondary">
+                            <span className="text-[#FA951E]">
                                 <Typewriter
                                     words={[
                                         "The Beaches of Cox’s Bazar",
@@ -75,7 +75,7 @@ const HeroSection = () => {
                         Discover curated experiences and unforgettable memories.
                     </p>
                     <Link to="/all-packages">
-                        <button className="bg-primary text-white px-6 py-3 md:px-10 md:py-4 btn border-none rounded-none md:text-lg font-medium shadow-md hover:bg-secondary hover:scale-105 transition duration-300 ease-in-out">
+                        <button className="bg-[#2C3892] text-white px-6 py-3 md:px-10 md:py-4 btn border-none rounded-none md:text-lg font-medium shadow-md hover:bg-[#FA951E] hover:scale-105 transition duration-300 ease-in-out">
                             View Packages
                         </button>
                     </Link>
