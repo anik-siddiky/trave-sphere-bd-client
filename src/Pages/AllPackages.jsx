@@ -1,14 +1,17 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import AllPackageCard from './AllPackageCard';
 import Loading from '../Components/Loading'
+import { debounce } from 'lodash';
 
 const AllPackages = () => {
     const [packageData, setPackageData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
 
-    useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/package`)
+    const fetchPackage = (search = '') => {
+        setLoading(true);
+        axios.get(`${import.meta.env.VITE_API_URL}/package`, { params: { search } })
             .then(res => {
                 setPackageData(res.data);
                 setLoading(false);
@@ -17,13 +20,47 @@ const AllPackages = () => {
                 console.log(error);
                 setLoading(false);
             })
+    }
+
+    const debounceFetch = useCallback(
+        debounce((value) => {
+            fetchPackage(value);
+        }, 100),
+        []
+    );
+
+    useEffect(() => {
+        debounceFetch(searchTerm);
+        if (searchTerm === '') {
+            fetchPackage('');
+        }
+    }, [searchTerm, debounceFetch])
+
+    useEffect(() => {
+        fetchPackage();
     }, [])
+
+    const handleSearch = () => {
+        fetchPackage(searchTerm)
+    }
 
     return (
         <div className="my-12 px-4 md:px-0 lg:max-w-7xl mx-auto">
-            <h1 className="text-4xl font-bold text-center mb-12 text-gray-800 relative after:content-[''] after:block after:w-20 after:h-1 after:bg-primary after:mx-auto after:mt-4">
-                All Packages
-            </h1>
+            <div>
+                <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 relative after:content-[''] after:block after:w-20 after:h-1 after:bg-primary after:mx-auto after:mt-4">
+                    All Packages
+                </h1>
+                <div className='flex justify-end mb-5'>
+                    <input
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        type="text"
+                        placeholder="Search by tour or destination"
+                        className="input input-bordered w-full max-w-xs"
+                    />
+                    <button onClick={handleSearch} className='btn bg-primary rounded-none shadow-none text-white'>Search</button>
+                </div>
+            </div>
 
             {
                 loading ?
@@ -38,8 +75,6 @@ const AllPackages = () => {
                         ))}
                     </div>)
             }
-
-
         </div>
     );
 };
