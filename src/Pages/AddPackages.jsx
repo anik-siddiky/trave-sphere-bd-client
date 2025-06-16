@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
-import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
+import axiosSecure from '../Hooks/useAxiosSecure';
 
 const AddPackages = () => {
     const { user } = useContext(AuthContext);
@@ -22,7 +22,7 @@ const AddPackages = () => {
 
         console.log(data)
 
-        axios.post(`${import.meta.env.VITE_API_URL}/package`, data)
+        axiosSecure.post(`/package`, data)
             .then(res => {
                 console.log(res.data)
                 toast.success("Your package was added successfully");

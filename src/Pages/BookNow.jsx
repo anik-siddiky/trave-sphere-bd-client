@@ -1,9 +1,9 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import Loading from '../Components/Loading';
 import { AuthContext } from '../Contexts/AuthContext';
 import { toast } from 'react-toastify';
+import axiosSecure from '../Hooks/useAxiosSecure';
 
 const BookNow = () => {
 
@@ -15,7 +15,7 @@ const BookNow = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/package/${id}`)
+        axiosSecure.get(`/package/${id}`)
             .then(res => {
                 setTour(res.data);
                 setLoading(false);
@@ -50,7 +50,7 @@ const BookNow = () => {
             return toast.error("You cannot book your own package");
         }
 
-        axios.post(`${import.meta.env.VITE_API_URL}/bookings`, bookingData)
+        axiosSecure.post(`/bookings`, bookingData)
             .then(() => {
                 toast.success("Booking successful!");
                 navigate('/my-bookings');

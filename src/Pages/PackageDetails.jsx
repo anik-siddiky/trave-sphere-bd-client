@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import Loading from '../Components/Loading';
 import { FaCalendarAlt, FaMapMarkerAlt, FaClock, FaPhoneAlt, FaEnvelope, FaMoneyBillWave, FaStar } from 'react-icons/fa';
+import { IoIosPerson } from "react-icons/io";
 
 const PackageDetails = () => {
     const { id } = useParams();
@@ -33,9 +34,7 @@ const PackageDetails = () => {
         return <p className="text-center py-20 text-xl">Package not found.</p>;
     }
 
-    const { image, tourName, price, departureDate, departureLocation, destination, duration, packageDetails, guidePhoto, guideName, contactNo, guideEmail } = packageData;
-
-
+    const { image, tourName, price, departureDate, departureLocation, destination, duration, packageDetails, guidePhoto, guideName, contactNo, guideEmail, booking_count } = packageData;
 
     return (
         <div className="max-w-7xl mx-auto px-4 md:px-0 py-12">
@@ -53,10 +52,7 @@ const PackageDetails = () => {
                             <FaMapMarkerAlt className="mr-2 text-amber-400" />
                             {destination}
                         </span>
-                        <span className="flex items-center">
-                            <FaStar className="mr-2 text-amber-400" />
-                            5.0 (24 Reviews)
-                        </span>
+                        <span className='flex items-center'><IoIosPerson size={21} className="mr-2 text-amber-400" /> Total {booking_count} people are going</span>
                     </div>
                 </div>
             </div>

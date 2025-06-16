@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import AllPackageCard from './AllPackageCard';
 import Loading from '../Components/Loading'
 import { debounce } from 'lodash';
+import axiosSecure from '../Hooks/useAxiosSecure';
 
 const AllPackages = () => {
     const [packageData, setPackageData] = useState([]);
@@ -11,7 +11,7 @@ const AllPackages = () => {
 
     const fetchPackage = (search = '') => {
         setLoading(true);
-        axios.get(`${import.meta.env.VITE_API_URL}/package`, { params: { search } })
+        axiosSecure.get(`/package`, { params: { search } })
             .then(res => {
                 setPackageData(res.data);
                 setLoading(false);
@@ -45,7 +45,7 @@ const AllPackages = () => {
     }
 
     return (
-        <div className="my-12 px-4 md:px-0 lg:max-w-7xl mx-auto">
+        <div className="my-12 px-4 md:px-0 lg:max-w-7xl mx-auto min-h-screen">
             <div>
                 <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 relative after:content-[''] after:block after:w-20 after:h-1 after:bg-primary after:mx-auto after:mt-4">
                     All Packages

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { toast } from 'react-toastify';
 import Loading from '../Components/Loading';
+import axiosSecure from '../Hooks/useAxiosSecure';
 
 const UpdatePackage = () => {
     const { id } = useParams();
@@ -27,7 +28,7 @@ const UpdatePackage = () => {
     const handlePackageUpdate = (e) => {
         e.preventDefault();
 
-        axios.put(`${import.meta.env.VITE_API_URL}/package/${id}`, formData)
+        axiosSecure.put(`/package/${id}`, formData)
             .then((res) => {
                 console.log(res.data);
                 toast.success("Package updated successfully!");

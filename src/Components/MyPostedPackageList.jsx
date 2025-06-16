@@ -2,16 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
-import axios from "axios";
-import { AuthContext } from "../Contexts/AuthContext";
 import Loading from "./Loading";
+import axiosSecure from '../Hooks/useAxiosSecure';
 
 const MyPostedPackageList = ({ userEmail }) => {
     const [packages, setPackages] = useState([]);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_API_URL}/package?email=${userEmail}`)
+        axiosSecure.get(`/guide-packages?email=${userEmail}`)
             .then(res => {
                 setPackages(res.data);
                 setLoading(false);
@@ -33,7 +33,7 @@ const MyPostedPackageList = ({ userEmail }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`${import.meta.env.VITE_API_URL}/package/${id}`)
+                axiosSecure.delete(`/package/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             Swal.fire("Deleted!", "Your package has been deleted.", "success");
@@ -62,6 +62,7 @@ const MyPostedPackageList = ({ userEmail }) => {
                         <th>Destination</th>
                         <th>Date</th>
                         <th>Price</th>
+                        <th>Bookings</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -80,6 +81,7 @@ const MyPostedPackageList = ({ userEmail }) => {
                             <td>{pkg.destination}</td>
                             <td>{pkg.departureDate}</td>
                             <td>৳{pkg.price}</td>
+                            <td className="text-center">{pkg.booking_count}</td>
                             <td>
                                 <div className="flex gap-2">
                                     <Link to={`/update-package/${pkg._id}`}>

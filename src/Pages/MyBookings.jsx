@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
-import axios from 'axios';
+import axiosSecure from '../Hooks/useAxiosSecure';
 
 const MyBookings = () => {
 
@@ -9,7 +9,7 @@ const MyBookings = () => {
 
     useEffect(() => {
         if (user?.email) {
-            axios.get(`${import.meta.env.VITE_API_URL}/bookings?email=${user.email}`)
+            axiosSecure.get(`/bookings?email=${user.email}`)
                 .then(res => {
                     setBookings(res.data);
                 })
@@ -20,7 +20,7 @@ const MyBookings = () => {
     }, [user])
 
     const handleConfirm = (id) => {
-        axios.patch(`${import.meta.env.VITE_API_URL}/bookings/${id}`, { status: 'completed' })
+        axiosSecure.patch(`/bookings/${id}`, { status: 'completed' })
             .then(() => {
                 setBookings(prev => prev.map(booking => booking._id === id ? { ...booking, status: 'completed' } : booking))
             })
@@ -34,6 +34,7 @@ const MyBookings = () => {
                     <thead>
                         <tr>
                             <th>Tour Name</th>
+                            <th>Booking Date</th>
                             <th>Guide</th>
                             <th>Contact</th>
                             <th>Departure</th>
@@ -46,6 +47,7 @@ const MyBookings = () => {
                         {bookings.map(booking => (
                             <tr key={booking._id}>
                                 <td>{booking.tourName}</td>
+                                <td>{new Date(booking.bookingDate).toLocaleString()}</td>
                                 <td>{booking.guideName}</td>
                                 <td>{booking.contactNo}</td>
                                 <td>{booking.departureDate} ({booking.departureLocation})</td>
