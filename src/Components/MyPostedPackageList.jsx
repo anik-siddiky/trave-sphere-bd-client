@@ -48,7 +48,7 @@ const MyPostedPackageList = ({ userEmail }) => {
     }
 
     return (
-        <div className="overflow-x-auto px-4 md:px-0 md:max-w-7xl mx-auto min-h-screen">
+        <div className="overflow-x-auto px-4 lg:px-0 md:max-w-7xl mx-auto min-h-screen">
             <h3 className="text-xl md:text-3xl font-semibold my-8 text-center text-[#2C3892] dark:text-white">
                 You have added {packages.length} packages
             </h3>

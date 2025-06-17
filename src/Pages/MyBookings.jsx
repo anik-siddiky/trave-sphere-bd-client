@@ -1,20 +1,24 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import axiosSecure from '../Hooks/useAxiosSecure';
+import Loading from '../Components/Loading';
 
 const MyBookings = () => {
 
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (user?.email) {
             axiosSecure.get(`/bookings?email=${user.email}`)
                 .then(res => {
                     setBookings(res.data);
+                    setLoading(false);
                 })
                 .catch(error => {
                     console.log(error);
+                    setLoading(false);
                 })
         }
     }, [user]);
@@ -26,8 +30,10 @@ const MyBookings = () => {
             });
     }
 
+    if (loading) return <Loading></Loading>
+
     return (
-        <div className='max-w-7xl mx-auto py-12 min-h-screen'>
+        <div className='px-4 lg:px-0 max-w-7xl mx-auto py-12 min-h-screen'>
             <h2 className='text-3xl font-bold mb-6 text-gray-800 dark:text-white text-center'>My Bookings</h2>
             <div className="overflow-x-auto rounded-lg shadow-md">
                 <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">

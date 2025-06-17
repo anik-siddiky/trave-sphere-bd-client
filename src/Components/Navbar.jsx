@@ -28,7 +28,7 @@ const Navbar = () => {
     ].filter(Boolean);;
 
     return (
-        <nav className="bg-white dark:bg-black text-base-content shadow-md w-full z-50">
+        <nav className="bg-white dark:bg-black text-base-content shadow-md w-full z-50 md:px-8 lg:px-0">
             <div className="max-w-7xl mx-auto px-4 md:px-0 flex justify-between items-center">
 
                 <Link to='/'>
@@ -68,7 +68,7 @@ const Navbar = () => {
                                     </div>
                                 </div>
                                 {isDropDownOpen && (
-                                    <ul className="bg-white dark:bg-black text-black dark:text-white absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 shadow-lg rounded-lg w-60 p-4 space-y-2">
+                                    <ul className="bg-white dark:bg-black text-black dark:text-white absolute md:right-1/2 lg:left-1/2 lg:-translate-x-1/2 top-full mt-2 z-50 shadow-lg rounded-lg w-60 p-4 space-y-2">
                                         <li className="py-2 flex items-center justify-center">
                                             <NavLink onClick={() => setIsDropDownOpen(false)} className={({ isActive }) =>
                                                 isActive ? "text-[#2C3892] font-semibold" : "hover:text-[#2C3892] transition"
@@ -108,7 +108,7 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={`bg-red-400 md:hidden dark:bg-black fixed top-0 left-0 w-full h-full text-base-content transform transition-transform duration-500 z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+            <div className={`bg-gray-200 md:hidden dark:bg-black fixed top-0 left-0 w-full h-full text-base-content transform transition-transform duration-500 z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <div className="flex justify-between items-center p-4 border-b border-base-200">
                     <img src={websiteLogo} alt="Logo" className="w-24" />
                     <button onClick={() => setIsOpen(false)} className="focus:outline-none">

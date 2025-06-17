@@ -4,7 +4,7 @@ import { Plane } from 'lucide-react';
 
 const Loading = () => {
     return (
-        <div className="flex items-center justify-center min-h-[calc(100vh-100px)] bg-white dark:bg-black">
+        <div className="flex items-center justify-center min-h-[calc(100vh-50px)] bg-white dark:bg-black">
             <motion.div
                 className="relative w-28 h-28"
                 animate={{ rotate: 360 }}

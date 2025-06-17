@@ -44,16 +44,16 @@ const UpdatePackage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-base-100 py-10 px-4 md:px-8">
-            <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md">
-                <h2 className="text-3xl font-semibold text-primary mb-6 text-center">Update Tour Package</h2>
+        <div className="min-h-screen bg-white dark:bg-black py-10 px-4 md:px-8">
+            <div className="max-w-3xl mx-auto bg-gray-50 dark:bg-gray-900 p-8 rounded-xl shadow-md">
+                <h2 className="text-3xl font-semibold text-[#2C3892] dark:text-white mb-6 text-center">Update Tour Package</h2>
                 <form onSubmit={handlePackageUpdate} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
                             type="text"
                             name="tourName"
                             placeholder="Tour Name"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.tourName}
                             onChange={handleChange}
@@ -62,12 +62,18 @@ const UpdatePackage = () => {
                             type="url"
                             name="image"
                             placeholder="Image URL"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.image}
                             onChange={handleChange}
                         />
-                        <select name="duration" className="select select-bordered w-full" required value={formData?.duration} onChange={handleChange}>
+                        <select
+                            name="duration"
+                            className="select select-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+                            required
+                            value={formData?.duration}
+                            onChange={handleChange}
+                        >
                             <option value="">Select Duration</option>
                             <option value="2 Days 1 Night">2 Days 1 Night</option>
                             <option value="3 Days 2 Nights">3 Days 2 Nights</option>
@@ -80,7 +86,7 @@ const UpdatePackage = () => {
                             type="text"
                             name="departureLocation"
                             placeholder="Departure Location"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.departureLocation}
                             onChange={handleChange}
@@ -89,7 +95,7 @@ const UpdatePackage = () => {
                             type="text"
                             name="destination"
                             placeholder="Destination"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.destination}
                             onChange={handleChange}
@@ -98,7 +104,7 @@ const UpdatePackage = () => {
                             type="number"
                             name="price"
                             placeholder="Price"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.price}
                             onChange={handleChange}
@@ -106,7 +112,7 @@ const UpdatePackage = () => {
                         <input
                             type="date"
                             name="departureDate"
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.departureDate}
                             onChange={handleChange}
@@ -115,7 +121,7 @@ const UpdatePackage = () => {
                             type="number"
                             name="contactNo"
                             placeholder="Contact No."
-                            className="input input-bordered w-full"
+                            className="input input-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                             required
                             value={formData?.contactNo}
                             onChange={handleChange}
@@ -125,7 +131,7 @@ const UpdatePackage = () => {
                     <textarea
                         name="packageDetails"
                         placeholder="Package Details"
-                        className="textarea textarea-bordered w-full"
+                        className="textarea textarea-bordered w-full bg-gray-100 text-black border-gray-300 dark:bg-gray-700 dark:text-white dark:border-gray-600"
                         rows="4"
                         required
                         value={formData?.packageDetails}
@@ -133,7 +139,10 @@ const UpdatePackage = () => {
                     />
 
                     <div className="text-center">
-                        <button type="submit" className="btn bg-primary text-white hover:bg-secondary mt-4 w-full md:w-auto">
+                        <button
+                            type="submit"
+                            className="btn bg-[#2C3892] text-white hover:bg-[#FA951E] mt-4 w-full md:w-auto shadow-none border-none rounded-none"
+                        >
                             Update Package
                         </button>
                     </div>

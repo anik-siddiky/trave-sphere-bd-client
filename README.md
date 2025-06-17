@@ -1,12 +1,34 @@
-# React + Vite
+# TravelSphere Bangladesh 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link: https://travelspherebangladesh.web.app/
 
-Currently, two official plugins are available:
+A travel-focused React based web application showcasing tourism destinations in Bangladesh.
+We are helping travelers discover and explore the beauty of the country.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+A Next-Level MERN Stack Web App
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Tourists:
+*User can register and login with google and email & password.
+*They can explore different tour packages.
+*They can visit a specific package page and book a package.
+*They can confirm their tour plan from my bookings.
+
+# Guides:
+*Guides can add different types of package from add packages.
+*They can name the package, add price and lots of details about the package.
+*They can manage their added package from manage my packages.
+*They can edit and delete packages form manage my packages.
+
+### Core Architecture
+| Layer           | Technology                                      | Key Packages                     |
+|-----------------|-------------------------------------------------|----------------------------------|
+| **Frontend**    | React 19 (Concurrent Mode)                      | `react-awesome-slider`, `lucide` |
+| **Backend**     | Nodejs, ExpressJs, Firebase Admin, env, cors    | `env, cors`                      |
+| **Database**    | MongoDB                                         |                                  |
+| **Animation**   | Lottie + Framer Motion                          | `dotlottie-react`, `motion`      |
+| **State**       | React Context + Hooks                           | `lodash` for utilities           |
+| **API**         | Firebase + Axios                                | `firebase@11.9.1`                |
+| **UI**          | Tailwind CSS + DaisyUI                          | `tailwindcss@4.1.8`              |
+| **Routing**     | React Router                                    | `react-router@7.6.2`             |
+|-----------------|-------------------------------------------------|----------------------------------|

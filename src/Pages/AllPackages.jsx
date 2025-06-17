@@ -45,7 +45,7 @@ const AllPackages = () => {
     }
 
     return (
-        <div className="px-4 md:px-0 lg:max-w-7xl mx-auto min-h-screen py-12">
+        <div className="px-4 lg:px-0 lg:max-w-7xl mx-auto min-h-screen py-12">
             <div>
                 <h1 className="text-4xl font-bold text-center mb-8 text-gray-800 dark:text-white">
                     All Packages
