@@ -5,7 +5,7 @@ Built with React, Vite, and Tailwind CSS, it offers a modern and responsive user
 
 ---
 
-## 🌐 Live Demo
+## 🌐 Live Link
 
 [https://travelspherebangladesh.web.app/](https://travelspherebangladesh.web.app/)
 
