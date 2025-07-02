@@ -61,6 +61,19 @@ const Navbar = () => {
         }
     }, [])
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [isOpen]);
+
+
     return (
         <nav className={`fixed transition-transform duration-500 backdrop-blur-md bg-white/40 dark:bg-black/50 shadow-md w-full z-50 md:px-8 lg:px-0 ${showNavbar ? 'translate-y-0 z-50' : '-translate-y-full -z-10'}`}>
 
@@ -134,15 +147,15 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div className={`bg-gray-200 lg:hidden dark:bg-black fixed top-0 left-0 w-full h-full text-base-content transform transition-transform duration-500 z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
-                <div className="flex justify-between items-center p-4 border-b border-base-200">
+            <div className={`backdrop-blur-md bg-white dark:bg-black lg:hidden fixed top-0 left-0 w-full h-full text-base-content transform transition-transform duration-500 z-40 min-h-screen ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+                <div className="flex  justify-between items-center p-4 border-b border-base-200">
                     <img src={websiteLogo} alt="Logo" className="w-24" />
                     <button onClick={() => setIsOpen(false)} className="focus:outline-none">
                         <X className="w-6 h-6 text-black dark:text-white" />
                     </button>
                 </div>
 
-                <div className="flex flex-col items-start px-6 py-6 space-y-6">
+                <div className="flex flex-col items-start px-6 py-6 space-y-6 ">
                     <div className="flex items-center gap-2">
                         <span className="text-sm md:text-lg text-black dark:text-white">Dark Mode</span>
                         <DarkModeToggleButton />
