@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { Menu, X } from "lucide-react";
 import websiteLogo from '../assets/website-logo.png';
@@ -9,6 +9,7 @@ const Navbar = () => {
     const { user, logOutUser } = useContext(AuthContext);
     const [isOpen, setIsOpen] = useState(false);
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
+    const dropDownRef = useRef(null);
 
     const handleLogOut = () => {
         logOutUser()
@@ -24,8 +25,22 @@ const Navbar = () => {
         { name: "Home", to: "/" },
         { name: "All Packages", to: "/all-packages" },
         user && { name: "My Bookings", to: "/my-bookings" },
-        { name: "About Us", to: "/about" },
+        { name: "Add Packages", to: "/add-packages" },
+        user && { name: "Manage Packages", to: '/manage-my-packages' },
+        { name: "About Us", to: "/about" }
     ].filter(Boolean);;
+
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
+                setIsDropDownOpen(false);
+            };
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [])
 
     return (
         <nav className="bg-white dark:bg-black text-base-content shadow-md w-full z-50 md:px-8 lg:px-0">
@@ -37,14 +52,14 @@ const Navbar = () => {
                     </div>
                 </Link>
 
-                <div className="hidden md:flex items-center space-x-6">
+                <div className="hidden lg:flex items-center space-x-5">
                     {navLinks.map((link) => (
                         <NavLink
                             key={link.name}
                             to={link.to}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "text-[#2C3892] font-semibold"
+                                    ? "text-[#2C3892] font-semibold border-b-3"
                                     : "text-black dark:text-white hover:text-[#2C3892] transition"
                             }
                         >
@@ -54,11 +69,11 @@ const Navbar = () => {
                 </div>
 
 
-                <div className="hidden md:flex gap-4 items-center">
+                <div className="hidden lg:flex gap-4 items-center">
                     <DarkModeToggleButton />
                     {
                         user ?
-                            <div className="relative">
+                            <div ref={dropDownRef} className="relative">
                                 <div tabIndex={0} role="button" className="avatar cursor-pointer" onClick={() => setIsDropDownOpen(prev => !prev)}>
                                     <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                                         {user?.photoURL ?
@@ -68,22 +83,13 @@ const Navbar = () => {
                                     </div>
                                 </div>
                                 {isDropDownOpen && (
-                                    <ul className="bg-white dark:bg-black text-black dark:text-white absolute md:right-1/2 lg:left-1/2 lg:-translate-x-1/2 top-full mt-2 z-50 shadow-lg rounded-lg w-60 p-4 space-y-2">
-                                        <li className="py-2 flex items-center justify-center">
-                                            <NavLink onClick={() => setIsDropDownOpen(false)} className={({ isActive }) =>
-                                                isActive ? "text-[#2C3892] font-semibold" : "hover:text-[#2C3892] transition"
-                                            } to='add-packages'>Add Packages</NavLink>
-                                        </li>
-                                        <li className="py-2 flex items-center justify-center">
-                                            <NavLink onClick={() => setIsDropDownOpen(false)} className={({ isActive }) =>
-                                                isActive ? "text-[#2C3892] font-semibold" : "hover:text-[#2C3892] transition "
-                                            } to='manage-my-packages'>Manage My Packages</NavLink>
-                                        </li>
+                                    <ul className="bg-white dark:bg-black text-black dark:text-white absolute md:right-1/2 lg:left-1/2 lg:-translate-x-1/2 top-full mt-2 z-50 shadow-lg rounded-lg w-56 p-4 space-y-2">
+                                        <p className="text-center">Hi, {user?.displayName}</p>
                                         <li className="py-2">
                                             <button onClick={() => {
                                                 handleLogOut();
                                                 setIsDropDownOpen(false);
-                                            }} className="btn bg-[#2C3892] text-white hover:bg-[#FA951E] border-none w-full">
+                                            }} className="btn bg-[#2C3892] text-white hover:bg-[#FA951E] rounded-none border-none w-full">
                                                 Log Out
                                             </button>
                                         </li>
@@ -101,14 +107,14 @@ const Navbar = () => {
                     }
                 </div>
 
-                <div className="md:hidden flex gap-3">
+                <div className="lg:hidden flex gap-3">
                     <button onClick={() => setIsOpen(true)} className="text-black dark:text-white focus:outline-none">
                         <Menu className="w-7 h-7" />
                     </button>
                 </div>
             </div>
 
-            <div className={`bg-gray-200 md:hidden dark:bg-black fixed top-0 left-0 w-full h-full text-base-content transform transition-transform duration-500 z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+            <div className={`bg-gray-200 lg:hidden dark:bg-black fixed top-0 left-0 w-full h-full text-base-content transform transition-transform duration-500 z-40 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <div className="flex justify-between items-center p-4 border-b border-base-200">
                     <img src={websiteLogo} alt="Logo" className="w-24" />
                     <button onClick={() => setIsOpen(false)} className="focus:outline-none">
@@ -118,33 +124,21 @@ const Navbar = () => {
 
                 <div className="flex flex-col items-start px-6 py-6 space-y-6">
                     <div className="flex items-center gap-2">
-                        <span className="text-sm text-black dark:text-white">Dark Mode</span>
+                        <span className="text-sm md:text-lg text-black dark:text-white">Dark Mode</span>
                         <DarkModeToggleButton />
                     </div>
 
                     {navLinks.map((link) => (
-                        <NavLink key={link.name} to={link.to} onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-[#2C3892] font-semibold" : "text-black dark:text-white text-lg hover:text-[#2C3892] transition"}>{link.name} </NavLink>))}
+                        <NavLink key={link.name} to={link.to} onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-[#2C3892] font-semibold text-lg md:text-2xl" : "text-black dark:text-white text-lg md:text-2xl hover:text-[#2C3892] transition"}>{link.name} </NavLink>))}
 
-                    {
-                        user &&
-                        <li className="flex items-center">
-                            <NavLink onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-black dark:text-white text-lg hover:text-primary transition"} to='add-packages'>Add Packages</NavLink>
-                        </li>
-                    }
-                    {
-                        user &&
-                        <li className="flex items-center">
-                            <NavLink onClick={() => setIsOpen(false)} className={({ isActive }) => isActive ? "text-primary font-semibold" : "text-black dark:text-white text-lg hover:text-primary transition"} to='manage-my-packages'>Manage My Packages</NavLink>
-                        </li>
-                    }
                     {
                         user ?
                             <>
-                                <button className="text-black dark:text-white" onClick={() => { setIsOpen(false); handleLogOut(); }} >Log Out</button>
+                                <button className="text-black dark:text-white text-lg md:text-2xl" onClick={() => { setIsOpen(false); handleLogOut(); }} >Log Out</button>
                             </>
                             :
                             <>
-                                <Link className="text-black dark:text-white" onClick={() => setIsOpen(false)} to={'/login'}>Login</Link>
+                                <Link className="text-black dark:text-white text-lg md:text-2xl" onClick={() => setIsOpen(false)} to={'/login'}>Login</Link>
                             </>
                     }
                 </div>

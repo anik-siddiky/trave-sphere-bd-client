@@ -27,7 +27,7 @@ const HeroSection = () => {
 
 
     return (
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full h-[70vh] overflow-hidden">
             <div className="w-full h-full relative">
                 {images.map((src, index) => (
                     <img
