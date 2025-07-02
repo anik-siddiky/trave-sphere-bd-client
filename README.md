@@ -1,34 +1,62 @@
-# TravelSphere Bangladesh 
+# Tour Package Booking Client
 
-Live link: https://travelspherebangladesh.web.app/
+Frontend client application for the Tour Package Booking platform.  
+Built with React, Vite, and Tailwind CSS, it offers a modern and responsive user interface to browse, book, and manage tour packages.
 
-A travel-focused React based web application showcasing tourism destinations in Bangladesh.
-We are helping travelers discover and explore the beauty of the country.
+---
 
+## 🌐 Live Link
 
-A Next-Level MERN Stack Web App
+[https://travelspherebangladesh.web.app/](https://travelspherebangladesh.web.app/)
 
-# Tourists:
-*User can register and login with google and email & password.
-*They can explore different tour packages.
-*They can visit a specific package page and book a package.
-*They can confirm their tour plan from my bookings.
+---
 
-# Guides:
-*Guides can add different types of package from add packages.
-*They can name the package, add price and lots of details about the package.
-*They can manage their added package from manage my packages.
-*They can edit and delete packages form manage my packages.
+## 🛠️ Technologies Used
 
-### Core Architecture
-| Layer           | Technology                                      | Key Packages                     |
-|-----------------|-------------------------------------------------|----------------------------------|
-| **Frontend**    | React 19 (Concurrent Mode)                      | `react-awesome-slider`, `lucide` |
-| **Backend**     | Nodejs, ExpressJs, Firebase Admin, env, cors    | `env, cors`                      |
-| **Database**    | MongoDB                                         |                                  |
-| **Animation**   | Lottie + Framer Motion                          | `dotlottie-react`, `motion`      |
-| **State**       | React Context + Hooks                           | `lodash` for utilities           |
-| **API**         | Firebase + Axios                                | `firebase@11.9.1`                |
-| **UI**          | Tailwind CSS + DaisyUI                          | `tailwindcss@4.1.8`              |
-| **Routing**     | React Router                                    | `react-router@7.6.2`             |
-|-----------------|-------------------------------------------------|----------------------------------|
+- **React 19** – Frontend library for building UI  
+- **Vite** – Next-generation frontend tooling for fast development  
+- **Tailwind CSS** – Utility-first CSS framework for styling  
+- **Firebase** – Backend services including authentication and database  
+- **Axios** – Promise-based HTTP client for API calls  
+- **Lottie & DotLottie** – Animation libraries for interactive UI elements  
+- **React Router** – Routing and navigation  
+- **React Toastify & SweetAlert2** – User notifications and alerts  
+- **React Icons & Lucide** – Icon libraries  
+- **DaisyUI** – Tailwind CSS component library  
+
+---
+
+## 🚀 Features
+
+- Browse and search tour packages with rich visuals and animations  
+- Responsive design optimized for desktop and mobile devices  
+- User authentication via Firebase  
+- Smooth navigation with React Router  
+- Interactive components and feedback via toast notifications and alerts  
+- Real-time API integration for bookings and user management  
+
+---
+
+## 📦 Dependencies
+
+```bash
+@lottiefiles/dotlottie-react
+@lottiefiles/dotlottie-web
+@tailwindcss/vite
+axios
+firebase
+lodash
+lottie-react
+lucide
+lucide-react
+motion
+react
+react-awesome-slider
+react-countup
+react-dom
+react-icons
+react-router
+react-simple-typewriter
+react-toastify
+sweetalert2
+tailwindcss
