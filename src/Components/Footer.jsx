@@ -13,6 +13,7 @@ const Footer = () => {
                     <a className="link link-hover">Marketing</a>
                     <a className="link link-hover">Advertisement</a>
                 </nav>
+                
                 <nav>
                     <h6 className="footer-title">Company</h6>
                     <Link to='/about' className="link link-hover">About us</Link>
