@@ -10,6 +10,8 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
     const dropDownRef = useRef(null);
+    const [showNavbar, setShowNavbar] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
 
     const handleLogOut = () => {
         logOutUser()
@@ -20,6 +22,23 @@ const Navbar = () => {
                 console.log(error)
             })
     }
+
+    useEffect(() => {
+        const handleScrollY = () => {
+            const currentScrollY = window.scrollY;
+
+            if (lastScrollY - currentScrollY > 10) {
+                setShowNavbar(true);
+            }
+            else if (currentScrollY - lastScrollY > 10) {
+                setShowNavbar(false);
+            }
+            setLastScrollY(currentScrollY)
+
+        }
+        window.addEventListener('scroll', handleScrollY);
+        return () => window.removeEventListener('scroll', handleScrollY);
+    }, [lastScrollY])
 
     const navLinks = [
         { name: "Home", to: "/" },
@@ -43,7 +62,8 @@ const Navbar = () => {
     }, [])
 
     return (
-        <nav className="bg-white dark:bg-black text-base-content shadow-md w-full z-50 md:px-8 lg:px-0">
+        <nav className={`fixed transition-transform duration-500 backdrop-blur-md bg-white/40 dark:bg-black/50 shadow-md w-full z-50 md:px-8 lg:px-0 ${showNavbar ? 'translate-y-0 z-50' : '-translate-y-full -z-10'}`}>
+
             <div className="max-w-7xl mx-auto px-4 md:px-0 flex justify-between items-center">
 
                 <Link to='/'>
