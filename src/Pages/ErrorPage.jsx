@@ -5,7 +5,7 @@ import errorAnimation from '../assets/animations/error404.json';
 
 const ErrorPage = () => {
     return (
-        <div className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center bg-white dark:bg-black text-center px-4">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black text-center px-4">
             <div className="max-w-md w-full">
                 <Lottie
                     animationData={errorAnimation}
