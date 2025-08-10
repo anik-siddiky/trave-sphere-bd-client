@@ -11,8 +11,7 @@ const AllPackageCard = ({ singlePackage }) => {
                 <img
                     src={image}
                     alt={tourName}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             </div>
 
             <div className="p-5">
