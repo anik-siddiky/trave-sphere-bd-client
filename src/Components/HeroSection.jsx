@@ -44,8 +44,7 @@ const HeroSection = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1.5, ease: 'easeOut' }}
-                >
+                    transition={{ duration: 1.5, ease: 'easeOut' }}>
                     <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
                         Explore Bangladesh <br />
                         <span className="text-2xl md:text-4xl">
