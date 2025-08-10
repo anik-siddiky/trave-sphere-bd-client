@@ -20,7 +20,7 @@ const Home = () => {
             <section>
                 <CompanyStats></CompanyStats>
             </section>
-            <section>
+            <section className='pb-0 lg:pb-10'>
                 <LocationSection></LocationSection>
             </section>
         </div>
