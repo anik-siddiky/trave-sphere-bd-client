@@ -21,9 +21,8 @@ const Footer = () => {
                 </nav>
                 <nav>
                     <h6 className="footer-title">Self Services</h6>
-                    <Link><a className="link link-hover">Add Packages</a></Link>
-                    <a className="link link-hover">Privacy policy</a>
-                    <a className="link link-hover">Cookie policy</a>
+                    <Link to="/add-packages"><a className="link link-hover">Add Packages</a></Link>
+                    <Link to="/manage-my-packages"><a className="link link-hover">Manage Packages</a></Link>
                 </nav>
             </div>
             <div className="footer text-base-content border-base-300 border-t py-4">
