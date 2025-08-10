@@ -4,10 +4,10 @@ import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+        <footer className='max-w-7xl mx-auto bg-[#1D232A]'>
+            <div className="footer sm:footer-horizontal text-base-content py-10">
                 <nav>
-                    <h6 className="footer-title">Services</h6>
+                    <h6 className="footer-title">General</h6>
                     <a className="link link-hover">Branding</a>
                     <a className="link link-hover">Design</a>
                     <a className="link link-hover">Marketing</a>
@@ -27,8 +27,8 @@ const Footer = () => {
                     <a className="link link-hover">Privacy policy</a>
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
-            </footer>
-            <footer className="footer bg-base-200 text-base-content border-base-300 border-t px-10 py-4">
+            </div>
+            <div className="footer text-base-content border-base-300 border-t py-4">
                 <aside className="grid-flow-col items-center">
                     <img src={websiteLogo} className="w-24 md:w-36 p-1 md:p-2" alt="" />
                     <p>
@@ -74,8 +74,8 @@ const Footer = () => {
                         </Link>
                     </div>
                 </nav>
-            </footer>
-        </div>
+            </div>
+        </footer>
     );
 };
 
