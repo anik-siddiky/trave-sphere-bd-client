@@ -8,22 +8,20 @@ const Footer = () => {
             <div className="footer sm:footer-horizontal text-base-content py-10">
                 <nav>
                     <h6 className="footer-title">General</h6>
-                    <a className="link link-hover">Branding</a>
-                    <a className="link link-hover">Design</a>
-                    <a className="link link-hover">Marketing</a>
-                    <a className="link link-hover">Advertisement</a>
+                    <Link to="/"><a className="link link-hover">Home</a></Link>
+                    <Link to="/all-packages"><a className="link link-hover">All Packages</a></Link>
+                    <Link to="/my-bookings"><a className="link link-hover">My Bookings</a></Link>
                 </nav>
-                
+
                 <nav>
                     <h6 className="footer-title">Company</h6>
                     <Link to='/about' className="link link-hover">About us</Link>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Jobs</a>
-                    <a className="link link-hover">Press kit</a>
+                    <Link to="mailto:iamaniksiddiky@gmail.com"><a className="link link-hover">Contact</a></Link>
+
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms of use</a>
+                    <h6 className="footer-title">Self Services</h6>
+                    <Link><a className="link link-hover">Add Packages</a></Link>
                     <a className="link link-hover">Privacy policy</a>
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
